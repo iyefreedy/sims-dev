@@ -15,7 +15,7 @@ class AuthController extends Controller
         if (!Auth::attempt($request->all())) {
             return response([
                 'message' => 'Kredensial tidak cocok',
-            ]);
+            ], 401);
         }
 
         $user = Auth::user();

@@ -40,4 +40,9 @@ class Guru extends Model
     {
         return $this->hasMany(Jadwal::class);
     }
+
+    public function kelas()
+    {
+        return $this->hasOne(Kelas::class);
+    }
 }

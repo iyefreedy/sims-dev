@@ -20,14 +20,14 @@ class JadwalController extends Controller
     public function index()
     {
         if (Auth::user()->role == 'guru') {
-            $guru = Auth::user()->info;
+            $guru = Auth::user()->guru;
             return JadwalResource::collection(Jadwal::where('guru_id', $guru->id)->get());
         }
 
         if (Auth::user()->role == 'siswa') {
             $currentTime = Carbon::now();
             // $currentSemester = $currentTime->month > 6 ? 'Gasal' : 'Genap';
-            $siswa = Auth::user()->info;
+            $siswa = Auth::user()->siswa;
             $kelas = $siswa->kelas()->where('tahun_ajaran', '2022')->where('semester', 'Gasal')->first();
 
 

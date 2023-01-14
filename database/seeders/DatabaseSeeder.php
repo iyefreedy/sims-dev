@@ -16,15 +16,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // sesi 1
-        // \App\Models\User::factory()->count(120)->siswa()->create();
-        \App\Models\User::factory()->count(30)->guru()->create();
+        \App\Models\User::factory()->count(200)->siswa()->create();
+        \App\Models\User::factory()->count(100)->guru()->create();
 
-        // $this->call(\Database\Seeders\SiswaSeeder::class);
-        // $this->call(\Database\Seeders\GuruSeeder::class);
+        $this->call(\Database\Seeders\SiswaSeeder::class);
+        $this->call(\Database\Seeders\GuruSeeder::class);
 
         // Sesi 2
-        // $this->call(KelasSeeder::class);
-        // $this->call(KelasSiswaSeeder::class);
+        $this->call(KelasSeeder::class);
+        $this->call(KelasSiswaSeeder::class);
 
         // Sesi 3
         $this->call(MataPelajaranSeeder::class);

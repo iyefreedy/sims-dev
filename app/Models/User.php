@@ -43,9 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function info(): HasOne
+    public function guru()
     {
-        return $this->role == 'guru' ? $this->hasOne(Guru::class) : $this->hasOne(Siswa::class);
-        // return $this->belongsTo(Guru::class);
+        return $this->hasOne(Guru::class);
+    }
+
+    public function siswa()
+    {
+        return $this->hasOne(Siswa::class);
     }
 }

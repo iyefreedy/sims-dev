@@ -18,7 +18,7 @@ class KelasResource extends JsonResource
             'id' => (string) $this->id,
             'nama' => $this->nama,
             'kelompok' => $this->kelompok,
-            'guru_id' => $this->guru_id,
+            'guru_id' => (string) $this->guru_id,
             'semester' => $this->semester,
             'tahun_ajaran' => $this->tahun_ajaran,
             // 'jadwal' => JadwalResource::collection($this->jadwal),

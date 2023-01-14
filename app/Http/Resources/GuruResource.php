@@ -15,7 +15,7 @@ class GuruResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => (string)$this->id,
+            'id' => (string) $this->id,
             'nuptk' => $this->nuptk,
             'nama' => $this->nama,
             'alamat' => $this->alamat,
@@ -23,6 +23,7 @@ class GuruResource extends JsonResource
             'tanggal_lahir' => $this->tanggal_lahir,
             'tempat_lahir' => $this->tempat_lahir,
             'user' => $this->user,
+            'kelas_id' => (string) $this->kelas->id,
         ];
     }
 }
