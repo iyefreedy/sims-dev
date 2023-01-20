@@ -96,6 +96,9 @@ class NilaiController extends Controller
     public function update(Request $request, Nilai $nilai)
     {
         //
+        $nilai->update($request->all());
+
+        return new NilaiResource($nilai);
     }
 
     /**

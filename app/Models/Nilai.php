@@ -21,6 +21,12 @@ class Nilai extends Model
         'is_published',
     ];
 
+    protected $casts = [
+        'tugas' => 'integer',
+        'uts' => 'integer',
+        'uas' => 'integer',
+    ];
+
     public function siswa()
     {
         return $this->belongsTo(Siswa::class);
