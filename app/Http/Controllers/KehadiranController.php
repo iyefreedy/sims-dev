@@ -26,7 +26,7 @@ class KehadiranController extends Controller
         }
 
         if ($user->role === 'siswa') {
-            $siswa = $user->info;
+            $siswa = $user->siswa;
             $kehadiran = Kehadiran::where('siswa_id', $siswa->id)->get();
             return KehadiranResource::collection($kehadiran);
         }

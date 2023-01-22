@@ -6,8 +6,10 @@ use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KehadiranController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MataPelajaranController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PertemuanController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
@@ -39,6 +41,8 @@ Route::middleware('auth:sanctum')->group(function () {
         'kehadiran' => KehadiranController::class,
         'pertemuan' => PertemuanController::class,
         'nilai' => NilaiController::class,
+        'messages' => MessageController::class,
+        'rooms' => RoomController::class,
     ]);
 
     Route::get('logout', [AuthController::class, 'logout']);

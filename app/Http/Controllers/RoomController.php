@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\NilaiResource;
-use App\Models\Kelas;
-use App\Models\Nilai;
-use App\Models\Siswa;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class NilaiController extends Controller
+class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,27 +16,9 @@ class NilaiController extends Controller
     public function index()
     {
         //
-        if (Auth::user()->role == 'guru') {
-            // $guru = Auth::user()->info;
-            $nilai = Nilai::all();
+        $user = Auth::user();
 
-
-            if (request()->has('mata_pelajaran_id')) {
-                $nilai = $nilai->where('mata_pelajaran_id', '==', request('mata_pelajaran_id'));
-            }
-
-            if (request()->has('kelas_id')) {
-                $nilai = $nilai->where('kelas_id', '==', request('kelas_id'));
-            }
-
-
-            return NilaiResource::collection($nilai);
-        }
-
-        if (Auth::user()->role == 'siswa') {
-            $siswa = Auth::user()->siswa;
-            $nilai = Nilai::where('siswa_id', $siswa->id)->get();
-            return NilaiResource::collection($nilai);
+        if ($user->role == 'guru') {
         }
     }
 
@@ -62,15 +41,19 @@ class NilaiController extends Controller
     public function store(Request $request)
     {
         //
+        $user = Auth::user();
+
+        if ($user->role == 'siswa') {
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Nilai  $nilai
+     * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function show(Nilai $nilai)
+    public function show(Room $room)
     {
         //
     }
@@ -78,10 +61,10 @@ class NilaiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Nilai  $nilai
+     * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function edit(Nilai $nilai)
+    public function edit(Room $room)
     {
         //
     }
@@ -90,24 +73,21 @@ class NilaiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Nilai  $nilai
+     * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Nilai $nilai)
+    public function update(Request $request, Room $room)
     {
         //
-        $nilai->update($request->all());
-
-        return new NilaiResource($nilai);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Nilai  $nilai
+     * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Nilai $nilai)
+    public function destroy(Room $room)
     {
         //
     }
